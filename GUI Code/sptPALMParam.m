@@ -448,7 +448,7 @@ function SetThresholdVals_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 try
     if handles.fileDir == 0;
-        errordlg('Please select a file directory to begin');
+        errordlg('Please select a file directory before setting threshold values.');
     else
         fileDir = handles.fileDir;
         setThresholdVals(fileDir);
