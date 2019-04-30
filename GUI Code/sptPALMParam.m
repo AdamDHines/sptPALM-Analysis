@@ -22,7 +22,7 @@ function varargout = sptPALMParam(varargin)
 
 % Edit the above text to modify the response to help sptPALMParam
 
-% Last Modified by GUIDE v2.5 19-Mar-2019 13:48:16
+% Last Modified by GUIDE v2.5 30-Apr-2019 13:23:22
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -438,6 +438,23 @@ function gapCloseMax_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+% SETTING THE THRESHOLD VALUES
+
+% --- Executes on button press in SetThresholdVals.
+function SetThresholdVals_Callback(hObject, eventdata, handles)
+% hObject    handle to SetThresholdVals (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+try
+    if handles.fileDir == 0;
+        errordlg('Please select a file directory to begin');
+    else
+        fileDir = handles.fileDir;
+        setThresholdVals(fileDir);
+    end
+end
+
 
 % --- Executes on button press in run.
 function run_Callback(hObject, eventdata, handles)
