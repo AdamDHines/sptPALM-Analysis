@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.24)  30 APR 2019 16:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.24)  1 MAY 2019 15:27
 entering extended mode
 **"./sptPALM Analysis Guide.tex"
 ("sptPALM Analysis Guide.tex"
@@ -294,10 +294,17 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 33.
 
+("C:\Users\uqahine4\AppData\Local\Programs\MiKTeX 2.9\tex/latex/titling\titling
+.sty"
+Package: titling 2009/09/04 v2.1d maketitle typesetting
+\thanksmarkwidth=\skip55
+\thanksmargin=\skip56
+\droptitle=\skip57
+)
 ("C:\Users\uqahine4\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath
 .sty"
 Package: amsmath 2018/12/01 v2.17b AMS math features
-\@mathmargin=\skip55
+\@mathmargin=\skip58
 
 For additional information on amsmath, use the `?' option.
 
@@ -352,25 +359,34 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
 \totwidth@=\dimen147
 \lineht@=\dimen148
 \@envbody=\toks25
-\multlinegap=\skip56
-\multlinetaggap=\skip57
+\multlinegap=\skip59
+\multlinetaggap=\skip60
 \mathdisplay@stack=\toks26
 LaTeX Info: Redefining \[ on input line 2844.
 LaTeX Info: Redefining \] on input line 2845.
+)
+("C:\Users\uqahine4\AppData\Local\Programs\MiKTeX 2.9\tex/latex/float\float.sty
+"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count126
+\float@exts=\toks27
+\float@box=\box31
+\@float@everytoks=\toks28
+\@floatcapt=\box32
 )
 ("C:\Users\uqahine4\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fancyhdr\fancyh
 dr.sty"
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
 s
-\f@nch@headwidth=\skip58
-\f@nch@O@elh=\skip59
-\f@nch@O@erh=\skip60
-\f@nch@O@olh=\skip61
-\f@nch@O@orh=\skip62
-\f@nch@O@elf=\skip63
-\f@nch@O@erf=\skip64
-\f@nch@O@olf=\skip65
-\f@nch@O@orf=\skip66
+\f@nch@headwidth=\skip61
+\f@nch@O@elh=\skip62
+\f@nch@O@erh=\skip63
+\f@nch@O@olh=\skip64
+\f@nch@O@orh=\skip65
+\f@nch@O@elf=\skip66
+\f@nch@O@erf=\skip67
+\f@nch@O@olf=\skip68
+\f@nch@O@orf=\skip69
 )
 ("C:\Users\uqahine4\AppData\Local\Programs\MiKTeX 2.9\tex/latex/sectsty\sectsty
 .sty"
@@ -390,60 +406,60 @@ Package tocbibind Note: Using section or other style headings.
 .sty"
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
 Package tocloft Info: The document has section divisions on input line 51.
-\cftparskip=\skip67
-\cftbeforetoctitleskip=\skip68
-\cftaftertoctitleskip=\skip69
-\cftbeforepartskip=\skip70
-\cftpartnumwidth=\skip71
-\cftpartindent=\skip72
-\cftbeforesecskip=\skip73
-\cftsecindent=\skip74
-\cftsecnumwidth=\skip75
-\cftbeforesubsecskip=\skip76
-\cftsubsecindent=\skip77
-\cftsubsecnumwidth=\skip78
-\cftbeforesubsubsecskip=\skip79
-\cftsubsubsecindent=\skip80
-\cftsubsubsecnumwidth=\skip81
-\cftbeforeparaskip=\skip82
-\cftparaindent=\skip83
-\cftparanumwidth=\skip84
-\cftbeforesubparaskip=\skip85
-\cftsubparaindent=\skip86
-\cftsubparanumwidth=\skip87
-\cftbeforeloftitleskip=\skip88
-\cftafterloftitleskip=\skip89
-\cftbeforefigskip=\skip90
-\cftfigindent=\skip91
-\cftfignumwidth=\skip92
-\cftbeforelottitleskip=\skip93
-\cftafterlottitleskip=\skip94
-\cftbeforetabskip=\skip95
-\cfttabindent=\skip96
-\cfttabnumwidth=\skip97
-\cftbeforesubfigskip=\skip98
-\cftsubfigindent=\skip99
-\cftsubfignumwidth=\skip100
-\cftbeforesubtabskip=\skip101
-\cftsubtabindent=\skip102
-\cftsubtabnumwidth=\skip103
+\cftparskip=\skip70
+\cftbeforetoctitleskip=\skip71
+\cftaftertoctitleskip=\skip72
+\cftbeforepartskip=\skip73
+\cftpartnumwidth=\skip74
+\cftpartindent=\skip75
+\cftbeforesecskip=\skip76
+\cftsecindent=\skip77
+\cftsecnumwidth=\skip78
+\cftbeforesubsecskip=\skip79
+\cftsubsecindent=\skip80
+\cftsubsecnumwidth=\skip81
+\cftbeforesubsubsecskip=\skip82
+\cftsubsubsecindent=\skip83
+\cftsubsubsecnumwidth=\skip84
+\cftbeforeparaskip=\skip85
+\cftparaindent=\skip86
+\cftparanumwidth=\skip87
+\cftbeforesubparaskip=\skip88
+\cftsubparaindent=\skip89
+\cftsubparanumwidth=\skip90
+\cftbeforeloftitleskip=\skip91
+\cftafterloftitleskip=\skip92
+\cftbeforefigskip=\skip93
+\cftfigindent=\skip94
+\cftfignumwidth=\skip95
+\cftbeforelottitleskip=\skip96
+\cftafterlottitleskip=\skip97
+\cftbeforetabskip=\skip98
+\cfttabindent=\skip99
+\cfttabnumwidth=\skip100
+\cftbeforesubfigskip=\skip101
+\cftsubfigindent=\skip102
+\cftsubfignumwidth=\skip103
+\cftbeforesubtabskip=\skip104
+\cftsubtabindent=\skip105
+\cftsubtabnumwidth=\skip106
 ) ("sptPALM Analysis Guide.aux")
 \openout1 = `"sptPALM Analysis Guide.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -483,17 +499,17 @@ LaTeX Font Info:    ... okay on input line 63.
 ("C:\Users\uqahine4\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\sup
 p-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count126
+\scratchcounter=\count127
 \scratchdimen=\dimen149
-\scratchbox=\box31
-\nofMPsegments=\count127
-\nofMParguments=\count128
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count129
+\scratchbox=\box33
+\nofMPsegments=\count128
+\nofMParguments=\count129
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count130
 \MPscratchDim=\dimen150
-\MPnumerator=\count130
-\makeMPintoPDFobject=\count131
-\everyMPtoPDFconversion=\toks28
+\MPnumerator=\count131
+\makeMPintoPDFobject=\count132
+\everyMPtoPDFconversion=\toks30
 )
 ("C:\Users\uqahine4\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstop
 df-base.sty"
@@ -512,9 +528,10 @@ G,.JBIG2,.JB2,.eps]
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box32
+\AtBeginShipoutBox=\box34
 
 ("C:\Users\uqahine4\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\color.
 sty"
@@ -526,7 +543,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-Package hyperref Info: Link coloring ON on input line 63.
+Package hyperref Info: Link coloring ON on input line 74.
 
 ("C:\Users\uqahine4\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\namere
 f.sty"
@@ -536,93 +553,218 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 itlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count132
+\c@section@level=\count133
 )
-LaTeX Info: Redefining \ref on input line 63.
-LaTeX Info: Redefining \pageref on input line 63.
-LaTeX Info: Redefining \nameref on input line 63.
+LaTeX Info: Redefining \ref on input line 74.
+LaTeX Info: Redefining \pageref on input line 74.
+LaTeX Info: Redefining \nameref on input line 74.
  ("sptPALM Analysis Guide.out") ("sptPALM Analysis Guide.out")
 \@outlinefile=\write3
 \openout3 = `"sptPALM Analysis Guide.out"'.
 
-[1
+Package atbegshi Info: Shipout page discarded.
 
-{C:/Users/uqahine4/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-("sptPALM Analysis Guide.toc")
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <34.12749> not available
+(Font)              size <24.88> substituted on input line 76.
+
+<Figures/"0) Title"/Title-image-01.png, id=55, 289.08pt x 244.915pt>
+File: Figures/"0) Title"/Title-image-01.png Graphic file (type png)
+<use Figures/"0) Title"/Title-image-01.png>
+Package pdftex.def Info: Figures/"0) Title"/Title-image-01.png  used on input l
+ine 76.
+(pdftex.def)             Requested size: 350.0pt x 296.54237pt.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <18.06749> not available
+(Font)              size <17.28> substituted on input line 76.
+
+[2{C:/Users/uqahine4/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./Figu
+res/0) Title/Title-image-01.png>] ("sptPALM Analysis Guide.toc")
 \tf@toc=\write4
 \openout4 = `"sptPALM Analysis Guide.toc"'.
 
- [2]
-Overfull \hbox (7.63861pt too wide) in paragraph at lines 74--76
+ [3]
+Overfull \hbox (7.63861pt too wide) in paragraph at lines 87--89
 \OT1/cmr/m/n/10.95 Thank you for down-load-ing and try-ing spt-PALM Anal-y-sis 
 (SPA). SPA is a semi-automated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
-
- []
-
-<Figures/"1) Introduction"/PALM-01.png, id=78, 598.235pt x 417.56pt>
-File: Figures/"1) Introduction"/PALM-01.png Graphic file (type png)
-<use Figures/"1) Introduction"/PALM-01.png>
-Package pdftex.def Info: Figures/"1) Introduction"/PALM-01.png  used on input l
-ine 90.
-(pdftex.def)             Requested size: 418.25368pt x 291.93956pt.
-
 Underfull \hbox (badness 10000) in paragraph at lines 96--97
 
  []
 
-[3] [4 <./Figures/1) Introduction/PALM-01.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 98--99
 
  []
 
-<Figures/"1) Introduction"/SPT-01.png, id=92, 598.235pt x 519.9425pt>
+<Figures/"1) Introduction"/PALM-01.png, id=84, 598.235pt x 417.56pt>
+File: Figures/"1) Introduction"/PALM-01.png Graphic file (type png)
+<use Figures/"1) Introduction"/PALM-01.png>
+Package pdftex.def Info: Figures/"1) Introduction"/PALM-01.png  used on input l
+ine 103.
+(pdftex.def)             Requested size: 418.25368pt x 291.93956pt.
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
+
+ []
+
+[5 <./Figures/1) Introduction/PALM-01.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
+
+ []
+
+<Figures/"1) Introduction"/SPT-01.png, id=99, 598.235pt x 519.9425pt>
 File: Figures/"1) Introduction"/SPT-01.png Graphic file (type png)
 <use Figures/"1) Introduction"/SPT-01.png>
 Package pdftex.def Info: Figures/"1) Introduction"/SPT-01.png  used on input li
-ne 103.
+ne 116.
 (pdftex.def)             Requested size: 418.25368pt x 363.52092pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 123.
-[5] [6 <./Figures/1) Introduction/SPT-01.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 123.
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+
+ []
+
+[7 <./Figures/1) Introduction/SPT-01.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
+
+ []
+
+<Figures/"1) Introduction"/sptMetrics-01.png, id=111, 506.89375pt x 426.59375pt
+>
+File: Figures/"1) Introduction"/sptMetrics-01.png Graphic file (type png)
+<use Figures/"1) Introduction"/sptMetrics-01.png>
+Package pdftex.def Info: Figures/"1) Introduction"/sptMetrics-01.png  used on i
+nput line 130.
+(pdftex.def)             Requested size: 418.25368pt x 352.00276pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
+
+ []
+
+[8 <./Figures/1) Introduction/sptMetrics-01.png>]
+<Figures/"1) Introduction"/MetaMorphTrackMate.png, id=119, 452.673pt x 640.2465
+pt>
+File: Figures/"1) Introduction"/MetaMorphTrackMate.png Graphic file (type png)
+<use Figures/"1) Introduction"/MetaMorphTrackMate.png>
+Package pdftex.def Info: Figures/"1) Introduction"/MetaMorphTrackMate.png  used
+ on input line 141.
+(pdftex.def)             Requested size: 418.25368pt x 591.58372pt.
+ [9] [10 <./Figures/1) Introduction/MetaMorphTrackMate.png>]
+<Figures/"2) Using SPA"/DownloadGit.jpg, id=130, 499.1448pt x 333.4056pt>
+File: Figures/"2) Using SPA"/DownloadGit.jpg Graphic file (type jpg)
+<use Figures/"2) Using SPA"/DownloadGit.jpg>
+Package pdftex.def Info: Figures/"2) Using SPA"/DownloadGit.jpg  used on input 
+line 153.
+(pdftex.def)             Requested size: 418.25368pt x 279.38216pt.
+<Figures/"2) Using SPA"/ChangeDir-01.jpg, id=131, 535.0389pt x 187.902pt>
+File: Figures/"2) Using SPA"/ChangeDir-01.jpg Graphic file (type jpg)
+<use Figures/"2) Using SPA"/ChangeDir-01.jpg>
+Package pdftex.def Info: Figures/"2) Using SPA"/ChangeDir-01.jpg  used on input
+ line 160.
+(pdftex.def)             Requested size: 418.25368pt x 146.88695pt.
+ [11 <./Figures/2) Using SPA/DownloadGit.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
+
+ []
+
+<Figures/"2) Using SPA"/SPACurDir-01.jpg, id=137, 199.2243pt x 187.902pt>
+File: Figures/"2) Using SPA"/SPACurDir-01.jpg Graphic file (type jpg)
+<use Figures/"2) Using SPA"/SPACurDir-01.jpg>
+Package pdftex.def Info: Figures/"2) Using SPA"/SPACurDir-01.jpg  used on input
+ line 171.
+(pdftex.def)             Requested size: 418.25368pt x 394.49115pt.
+[12 <./Figures/2) Using SPA/ChangeDir-01.jpg>]
+<Figures/"2) Using SPA"/DefDirSet-01.jpg, id=143, 359.6637pt x 551.1792pt>
+File: Figures/"2) Using SPA"/DefDirSet-01.jpg Graphic file (type jpg)
+<use Figures/"2) Using SPA"/DefDirSet-01.jpg>
+Package pdftex.def Info: Figures/"2) Using SPA"/DefDirSet-01.jpg  used on input
+ line 176.
+(pdftex.def)             Requested size: 418.25368pt x 640.97469pt.
+ [13 <./Figures/2) Using SPA/SPACurDir-01.jpg>]
+Overfull \vbox (73.04448pt too high) has occurred while \output is active []
+
+
+[14 <./Figures/2) Using SPA/DefDirSet-01.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
+
+ []
+
+<Figures/"2) Using SPA"/PropertiesSet-01.jpg, id=155, 504.9264pt x 279.6849pt>
+File: Figures/"2) Using SPA"/PropertiesSet-01.jpg Graphic file (type jpg)
+<use Figures/"2) Using SPA"/PropertiesSet-01.jpg>
+Package pdftex.def Info: Figures/"2) Using SPA"/PropertiesSet-01.jpg  used on i
+nput line 187.
+(pdftex.def)             Requested size: 418.25368pt x 231.68176pt.
+[15 <./Figures/2) Using SPA/PropertiesSet-01.jpg>]
+<Figures/"2) Using SPA"/TrackMateSpot-01.jpg, id=162, 393.6306pt x 376.5267pt>
+File: Figures/"2) Using SPA"/TrackMateSpot-01.jpg Graphic file (type jpg)
+<use Figures/"2) Using SPA"/TrackMateSpot-01.jpg>
+Package pdftex.def Info: Figures/"2) Using SPA"/TrackMateSpot-01.jpg  used on i
+nput line 194.
+(pdftex.def)             Requested size: 418.25368pt x 400.0816pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--203
+
+ []
+
+[16 <./Figures/2) Using SPA/TrackMateSpot-01.jpg>]
+<Figures/"2) Using SPA"/FolderStruct-01.jpg, id=169, 597.6729pt x 288.3573pt>
+File: Figures/"2) Using SPA"/FolderStruct-01.jpg Graphic file (type jpg)
+<use Figures/"2) Using SPA"/FolderStruct-01.jpg>
+Package pdftex.def Info: Figures/"2) Using SPA"/FolderStruct-01.jpg  used on in
+put line 207.
+(pdftex.def)             Requested size: 418.25368pt x 201.79591pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 219.
+ [17 <./Figures/2) Using SPA/FolderStruct-01.jpg>] [18]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 219.
  ("sptPALM Analysis Guide.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 123.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 123.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 219.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 219.
 Package rerunfilecheck Info: File `"sptPALM Analysis Guide".out' has not change
 d.
-(rerunfilecheck)             Checksum: 4AA25CB1859AF8BDF3F7DCF1EE8FFDF0;855.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 123.
+(rerunfilecheck)             Checksum: E35888F60A9B57C70A0F534F8227F84E;950.
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 9.24748pt have occurred.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 219.
  ) 
 Here is how much of TeX's memory you used:
- 8168 strings out of 492902
- 125830 string characters out of 3122405
- 231441 words of memory out of 3000000
- 11963 multiletter control sequences out of 15000+200000
- 11257 words of font info for 40 fonts, out of 3000000 for 9000
+ 8355 strings out of 492902
+ 129843 string characters out of 3122405
+ 231640 words of memory out of 3000000
+ 12109 multiletter control sequences out of 15000+200000
+ 11076 words of font info for 39 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,11n,43p,1133b,354s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,11n,43p,1133b,408s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/uqahine4/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
 nts/cm/cmbx10.pfb><C:/Users/uqahine4/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmmi10.pfb><C:/Users/uqahine4/AppData/Local/Programs/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/uqahine4/AppData/Loc
-al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/uqahi
-ne4/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-<C:/Users/uqahine4/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr17.pfb><C:/Users/uqahine4/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmr8.pfb><C:/Users/uqahine4/AppData/Local/Programs/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/uqahine4/AppData/Local/P
-rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "sptPALM Analysis Guide.pdf" (6 pages, 253392 bytes).
+pe1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/uqahine4/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/uqahine4/AppData/
+Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/uq
+ahine4/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.p
+fb><C:/Users/uqahine4/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmr17.pfb><C:/Users/uqahine4/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmr8.pfb><C:/Users/uqahine4/AppData/Local/Programs/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/uqahine4/AppData/Loca
+l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/uqahi
+ne4/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb
+>
+Output written on "sptPALM Analysis Guide.pdf" (17 pages, 4991436 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
- 22 named destinations out of 1000 (max. 500000)
- 107 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 223 PDF objects out of 1000 (max. 8388607)
+ 42 named destinations out of 1000 (max. 500000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

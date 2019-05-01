@@ -29,7 +29,7 @@ for n=1:size(aFold,1)
     tempDirFiles = dir(tempDir);
     dataSelect = [];
     for m=1:size(tempDirFiles,1)
-        if strfind(tempDirFiles(m).name,'405') > 0 & strfind(tempDirFiles(m).name,'.tif') > 0
+        if strfind(tempDirFiles(m).name,'.tif') > 0
             dataSelect(m,:) = 1;
         else
             dataSelect(m,:) = 0;
