@@ -166,17 +166,29 @@ function setFileDirBut_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 dFileDirectory = handles.defaultParameters.DefaultFileDirectory;
-fileDir = uigetdir(dFileDirectory);
-
-if isequal(fileDir,0)
-    set(handles.fileDirT,'String','Set file directory...');
-    return
+if isempty(dFileDirectory) == 1
+    flgSet = questdlg('Default file directory does not exist. Would you like to set one now?',...
+        'Default Directory Not Set','Yes','No','Yes');
+    if isequal(flgSet,'Yes')
+        setDefDir = uigetdir();
+        defaultParameters = handles.defaultParameters;
+        defaultParameters.DefaultFileDirectory = setDefDir;
+        save('Analysis Parameters\Defaults\defaultParameters.mat');
+        return
+    else
+        return
+    end
+else
+    fileDir = uigetdir(dFileDirectory);
+    
+    if isequal(fileDir,0)
+        set(handles.fileDirT,'String','Set file directory...');
+        return
+    end
 end
-
 set(handles.fileDirT,'String',fileDir);
 handles.fileDir = fileDir;
     guidata(hObject, handles);
-
 function spotRad_Callback(hObject, eventdata, handles)
 % hObject    handle to spotRad (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB

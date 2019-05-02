@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Overview}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Spot detection}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Particle linking}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{Mean squared displacement and diffusion coefficients}{section.1}% 5
+\BOOKMARK [2][-]{subsection.1.5}{Comparison of SPA to MetaMorph/PALMTracer}{section.1}% 6
+\BOOKMARK [1][-]{section.2}{Using SPA}{}% 7
+\BOOKMARK [2][-]{subsection.2.1}{Installing and setting up SPA}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.2}{Preparation of image sequences}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.3}{File directory structure}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.4}{Setting analysis parameters}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.5}{Setting threshold values}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.6}{Running analysis and analysing results}{section.2}% 13
