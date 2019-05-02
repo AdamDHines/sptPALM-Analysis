@@ -22,7 +22,7 @@ function varargout = sptPALMParam(varargin)
 
 % Edit the above text to modify the response to help sptPALMParam
 
-% Last Modified by GUIDE v2.5 30-Apr-2019 13:23:22
+% Last Modified by GUIDE v2.5 02-May-2019 14:13:14
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -146,7 +146,12 @@ if isempty(dFileDirectory) == 1
         save('Analysis Parameters\Defaults\defaultParameters.mat');
         return
     else
+        fileDir = uigetdir();
+    
+    if isequal(fileDir,0)
+        set(handles.fileDirT,'String','Set file directory...');
         return
+    end
     end
 else
     fileDir = uigetdir(dFileDirectory);
@@ -176,7 +181,12 @@ if isempty(dFileDirectory) == 1
         save('Analysis Parameters\Defaults\defaultParameters.mat');
         return
     else
+          fileDir = uigetdir();
+    
+    if isequal(fileDir,0)
+        set(handles.fileDirT,'String','Set file directory...');
         return
+    end
     end
 else
     fileDir = uigetdir(dFileDirectory);
@@ -467,6 +477,13 @@ try
     end
 end
 
+% --- Executes on button press in radiobutton4.
+function radiobutton4_Callback(hObject, eventdata, handles)
+% hObject    handle to radiobutton4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of radiobutton4
 
 % --- Executes on button press in run.
 function run_Callback(hObject, eventdata, handles)
@@ -553,13 +570,15 @@ if isequal(handles.gapCloseCheck,0)
 else
     gapCloseChk = true;
 end
+% Split file check
+splitFileCheck = get(handles.radiobutton4,'value');
 
 % update analysis parameter to .mat file
 analysisParameters = struct('FileDirectory',fileDir,'SpotRadius',spotRadius,...
     'TrackMinimum',trackMinimum,'TrackMaximum',trackMaximum,...
     'MaximumLink',maxLinking,'eNum',eNum,'MSDFitting',msdFit,...
     'TimeDelta',deltaTime,'MobImmobCutoff',miCutoff,'GapCloseMax',gapClose,...
-    'GapCloseChk',gapCloseChk);
+    'GapCloseChk',gapCloseChk, 'SplitFile',splitFileCheck);
 
 % run the analysis script
 sptPALM(analysisParameters);

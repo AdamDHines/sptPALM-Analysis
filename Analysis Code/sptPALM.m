@@ -59,6 +59,7 @@ addpath('Analysis Code');
 % redefine all of the parameters
 pFold = analysisParameters.FileDirectory;
 eNum = analysisParameters.eNum;
+splitFile = analysisParameters.SplitFile;
 
 %% Folder and file searching
 
@@ -154,15 +155,21 @@ if eNum == 1
         
         % analyse and output the average MSD and diffusion coefficient
         % values, filtering out datasets with less than 1,000 tracks
-        if size(unique(newTracks(:,1)),1) < 1000
-            waitbar(n/size(fullDataFile,1),expNumProg,sprintf(formatSpec,n,size(fullDataFile,1)));
-            Av_MSD(:,n) = zeros([10,1]);
-            N2(:,n) = zeros([60,1]);
-            continue
+        if splitFile == 0
+            if size(unique(newTracks(:,1)),1) < 1000
+                waitbar(n/size(fullDataFile,1),expNumProg,sprintf(formatSpec,n,size(fullDataFile,1)));
+                Av_MSD(:,n) = zeros([10,1]);
+                N2(:,n) = zeros([60,1]);
+                continue
+            else
+            waitbar(0.9,analysisProg,'Analysing MSD and D.Coeff...')
+                [Av_MSD(:,n), N2(:,n)] = sptAnalysis(foldOut,analysisParameters);
+            end
         else
-        waitbar(0.9,analysisProg,'Analysing MSD and D.Coeff...')
-            [Av_MSD(:,n), N2(:,n)] = sptAnalysis(foldOut,analysisParameters);
+               waitbar(0.9,analysisProg,'Analysing MSD and D.Coeff...')
+                [Av_MSD(:,n), N2(:,n)] = sptAnalysis(foldOut,analysisParameters); 
         end
+        
         
         % update waitbars to show experiment progress
         waitbar(1,analysisProg,'Done!')
