@@ -547,6 +547,7 @@ else
     msdFit = handles.msdFit;
 end
 % Time delta check
+% Test for GitHub
 if isequal(handles.deltaTime,0)
     deltaTime = defaultParameters.DefaultTimeDelta;
 else
