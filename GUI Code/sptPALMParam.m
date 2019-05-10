@@ -547,11 +547,10 @@ else
     msdFit = handles.msdFit;
 end
 % Time delta check
-% Test for GitHub
 if isequal(handles.deltaTime,0)
     deltaTime = defaultParameters.DefaultTimeDelta;
 else
-    deltaTime = handles.timeDelta;
+    deltaTime = handles.deltaTime;
 end
 % Mob Immob cutoff check
 if isequal(handles.miCutoff,0)
