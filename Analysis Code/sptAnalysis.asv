@@ -43,12 +43,11 @@ if outputRaw == 1
     e.Selection.Font.UnderLine = 2;
     
     % output the MSD data points corresponding to each file name
-    msdDataFormat = 'A%d:%s%d';
+    msdDataFormat = 'A%d:%c%d';
     for n = 1:size(MSD,2)
         tempMSD = []; tempMSD = MSD{:,n}';
         sizeCol = size(tempMSD,2);
-        colVal = xlscol(sizeCol);
-        msdDataRange = get(e.ActiveSheet,'Range',sprintf(msdDataFormat,n,colVal,n));
+        msdDataRange = get(e.ActiveSheet,'Range',sprintf(msdDataFormat,n));
         msdDataRange.Value = tempMSD;
     end
     
