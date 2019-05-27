@@ -19,6 +19,15 @@ for n = 1:size(MSD,2)
 end
 Av_MSD = nanmean(MSDFirstTen,2);
 
+log10_Ds=log10(Ds);
+edges = -5:0.1:1;
+N = histcounts(log10_Ds,edges);
+%max=max(N);
+sumN=sum(N);
+N2=N/sumN;
+edges(size(edges,2)) = [];
+N2=N2';
+
 % output the raw data if the option is selected
 outputRaw = analysisParameters.OutputRaw;
 if outputRaw == 1
@@ -37,10 +46,6 @@ if outputRaw == 1
     eSheet1.Select;
     eSheet1.Name = "MSD"; % format the name of the sheet
     [~,dateName,~] = fileparts(outputDir);
-    eDateNameRange = get(e.Activesheet,'Range','A1');
-    eDateNameRange.Value = dateName;
-    e.Range('A1').Select;
-    e.Selection.Font.UnderLine = 2;
     
     % output the MSD data points corresponding to each file name
     msdDataFormat = 'A%d:%s%d';
@@ -51,18 +56,29 @@ if outputRaw == 1
         msdDataRange = get(e.ActiveSheet,'Range',sprintf(msdDataFormat,n,colVal,n));
         msdDataRange.Value = tempMSD;
     end
+       
+    % sheet for diffusion coefficients
+    eSheets2 = eSheets.Add([], eSheets.Item(eSheets.Count));
+    eSheets2.Activate;
+    eSheets2.Select;
+    eSheets2.Name = "Diffusion Coefficients";
     
-    fileSaveFormat = 'Raw Analysed %s';
-    SaveAs(eWorkbook,fullfile(outputDir,sprintf(fileSaveFormat,dateName)));
+    % input the diffusion coefficient data
+    DsDataFormat = 'A%d';
+    
+    for n = 1:size(Ds,1)
+        DsDataRange = get(e.ActiveSheet,'Range',sprintf(DsDataFormat,n));
+        DsDataRange.Value = Ds(n,:);
+    end
+    
+    dirSpec = 'Raw Analysis Data %s';
+    dirName = sprintf(dirSpec,datetime);
+    dirName = strrep(dirName,':','-');
+    outPutFold = fullfile(outputDir,dirName);
+    mkdir(outputDir,dirName);
+    
+    fileSaveFormat = 'Raw Analysed Results %s';
+    SaveAs(eWorkbook,fullfile(outPutFold,sprintf(fileSaveFormat,dateName)));
     Quit(e);
     delete(e);
 end    
-
-log10_Ds=log10(Ds);
-edges = -5:0.1:1;
-N = histcounts(log10_Ds,edges);
-%max=max(N);
-sumN=sum(N);
-N2=N/sumN;
-edges(size(edges,2)) = [];
-N2=N2';

@@ -37,24 +37,35 @@ if outputRaw == 1
     eSheet1.Select;
     eSheet1.Name = "MSD"; % format the name of the sheet
     [~,dateName,~] = fileparts(outputDir);
+    
+    % output the MSD data points corresponding to each file name
+    msdDataFormat = 'A%d:%s%d';
+    for n = 1:size(MSD,2)
+        tempMSD = []; tempMSD = MSD{:,n}';
+        sizeCol = size(tempMSD,2);
+        colVal = xlscol(sizeCol);
+        msdDataRange = get(e.ActiveSheet,'Range',sprintf(msdDataFormat,n,colVal,n));
+        msdDataRange.Value = tempMSD;
+    end
+       
+    % sheet for diffusion coefficients
+    eSheets2 = eSheets.Add([], eSheets.Item(eSheets.Count));
+    eSheets2.Activate;
+    eSheets2.Select;
+    eSheets2.Name = "Diffusion Coefficients";
     eDateNameRange = get(e.Activesheet,'Range','A1');
     eDateNameRange.Value = dateName;
     e.Range('A1').Select;
     e.Selection.Font.UnderLine = 2;
     
-    % output the MSD data points corresponding to each file name
-    msdDataFormat = 'A%d:%c%d';
-    for n = 1:size(MSD,2)
-        tempMSD = []; tempMSD = MSD{:,n}';
-        sizeCol = size(tempMSD,2);
-        msdDataRange = get(e.ActiveSheet,'Range',sprintf(msdDataFormat,n));
-        msdDataRange.Value = tempMSD;
+    % input the diffusion coefficient data
+    N2hor = N2';
+    n2DataFormat = 'A%d:%d%d';
+    for n = 1:size(N2hor,1)
+        n2DataRange = get(e.ActiveSheet,'Range',sprintf(n2DataFormat,n+2,n+2));
+        n2DataRange.Value = N2hor(n,:);
     end
-    
-    fileSaveFormat = 'Raw Analysed %s';
-    SaveAs(eWorkbook,fullfile(outputDir,sprintf(fileSaveFormat,dateName)));
-    Quit(e);
-    delete(e);
+
 end    
 
 log10_Ds=log10(Ds);
