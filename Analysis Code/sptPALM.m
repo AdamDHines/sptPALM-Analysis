@@ -163,11 +163,11 @@ if eNum == 1
                 continue
             else
             waitbar(0.9,analysisProg,'Analysing MSD and D.Coeff...')
-                [Av_MSD(:,n), N2(:,n)] = sptAnalysis(foldOut,analysisParameters);
+                [Av_MSD(:,n), N2(:,n)] = sptAnalysis(foldOut,analysisParameters,fullDataFile);
             end
         else
                waitbar(0.9,analysisProg,'Analysing MSD and D.Coeff...')
-                [Av_MSD(:,n), N2(:,n)] = sptAnalysis(foldOut,analysisParameters); 
+                [Av_MSD(:,n), N2(:,n)] = sptAnalysis(foldOut,analysisParameters,fullDataFile); 
         end
         
         

@@ -22,7 +22,7 @@ function varargout = sptPALMParam(varargin)
 
 % Edit the above text to modify the response to help sptPALMParam
 
-% Last Modified by GUIDE v2.5 02-May-2019 14:13:14
+% Last Modified by GUIDE v2.5 24-May-2019 13:46:02
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -461,6 +461,17 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
+% --- Executes on button press in OutputRaw.
+function OutputRaw_Callback(hObject, eventdata, handles)
+% hObject    handle to OutputRaw (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of OutputRaw
+outputRaw = get(hObject,'Value');
+handles.outputRaw = outputRaw;
+    guidata(hObject, handles);
+
 % SETTING THE THRESHOLD VALUES
 
 % --- Executes on button press in SetThresholdVals.
@@ -572,13 +583,16 @@ else
 end
 % Split file check
 splitFileCheck = get(handles.radiobutton4,'value');
+% Raw data check
+rawdataCheck = get(handles.OutputRaw,'value');
 
 % update analysis parameter to .mat file
 analysisParameters = struct('FileDirectory',fileDir,'SpotRadius',spotRadius,...
     'TrackMinimum',trackMinimum,'TrackMaximum',trackMaximum,...
     'MaximumLink',maxLinking,'eNum',eNum,'MSDFitting',msdFit,...
     'TimeDelta',deltaTime,'MobImmobCutoff',miCutoff,'GapCloseMax',gapClose,...
-    'GapCloseChk',gapCloseChk, 'SplitFile',splitFileCheck);
+    'GapCloseChk',gapCloseChk, 'SplitFile',splitFileCheck,'OutputRaw',...
+    rawdataCheck);
 
 % run the analysis script
 sptPALM(analysisParameters);
