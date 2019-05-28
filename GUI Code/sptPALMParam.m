@@ -179,6 +179,7 @@ if isempty(dFileDirectory) == 1
         defaultParameters = handles.defaultParameters;
         defaultParameters.DefaultFileDirectory = setDefDir;
         save('Analysis Parameters\Defaults\defaultParameters.mat','defaultParameters');
+        msgbox('Please restart sptPALM-Analysis for changes to take effect.','Restart.');
         return
     else
           fileDir = uigetdir();
