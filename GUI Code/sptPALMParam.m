@@ -143,7 +143,7 @@ if isempty(dFileDirectory) == 1
         setDefDir = uigetdir();
         defaultParameters = handles.defaultParameters;
         defaultParameters.DefaultFileDirectory = setDefDir;
-        save('Analysis Parameters\Defaults\defaultParameters.mat');
+        save('Analysis Parameters\Defaults\defaultParameters.mat',defaultParameters);
         return
     else
         fileDir = uigetdir();
@@ -178,7 +178,8 @@ if isempty(dFileDirectory) == 1
         setDefDir = uigetdir();
         defaultParameters = handles.defaultParameters;
         defaultParameters.DefaultFileDirectory = setDefDir;
-        save('Analysis Parameters\Defaults\defaultParameters.mat');
+        save('Analysis Parameters\Defaults\defaultParameters.mat','defaultParameters');
+        msgbox('Please restart sptPALM-Analysis for changes to take effect.','Restart.');
         return
     else
           fileDir = uigetdir();
