@@ -1,4 +1,4 @@
-function [Av_MSD, N2] = sptAnalysis(foldOut,analysisParameters,fullDataFile)
+function [Av_MSD, N2] = sptAnalysis(foldOut,analysisParameters,fullDataFile,i)
 
 [CorrData, AvgMSD, D, MSD, Ds] = AverageMSDCalculator(foldOut,...
     analysisParameters.TrackMinimum-1,analysisParameters.MSDFitting,...
@@ -31,7 +31,7 @@ N2=N2';
 % output the raw data if the option is selected
 outputRaw = analysisParameters.OutputRaw;
 if outputRaw == 1
-    dirInfo = dir(fullDataFile{1});
+    dirInfo = dir(fullDataFile{i});
     outputDir = dirInfo.folder;
     
     e = actxserver('Excel.Application');
