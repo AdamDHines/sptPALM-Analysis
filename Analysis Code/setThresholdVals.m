@@ -22,7 +22,7 @@ for n = 1:size(directory,1)
         directory(n,:) = [];
     end
 end
-fullDataFile = goSearching(directory);
+fullDataFile = goSearchingThresh(directory);
 numFiles = size(fullDataFile,1);
 
 % Generate prompt box for user to input threshold values

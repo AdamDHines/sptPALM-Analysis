@@ -1,4 +1,5 @@
-function dataOut(Av_MSD,N2,folderOut,analysisParameters,fullDataFile)
+function dataOut(Av_MSD,N2,folderOut,analysisParameters,fullDataFile,...
+                                                         spotCount,trackNo)
 
 % format data for outputting
 
@@ -80,7 +81,7 @@ for n = 1:size(N2hor,1)
     n2DataRange.Value = N2hor(n,:);
 end
 
-% final sheet for analysis parameters
+% sheet for analysis parameters
 eSheets3 = eSheets.Add([], eSheets.Item(eSheets.Count));
 eSheets3.Activate;
 eSheets3.Select;
@@ -101,6 +102,44 @@ for n = 1:size(fieldNames,1)
     eFileNameSheetRange.Value = fieldNames{n,:};
     paramValueRange = get(e.Activesheet,'Range',sprintf(paramValueRangeForm,n+2));
     paramValueRange.Value = analysisParameters.(sprintf(paramValueFormat,fieldNames{n,:}));
+end
+
+% sheet for analysis report
+eSheets4 = eSheets.Add([], eSheets.Item(eSheets.Count));
+eSheets4.Activate;
+eSheets4.Select;
+eSheets4.Name = "Analysis Report";
+eDateNameRange = get(e.Activesheet,'Range','A1');
+eDateNameRange.Value = dateName;
+e.Range('A1').Select;
+e.Selection.Font.UnderLine = 2;
+e.Selection.Columns.AutoFit;
+
+% set headings for analysis report
+eHeadingsRange = get(e.Activesheet,'Range','B1');
+eHeadingsRange.Value = 'No. spots';
+eHeadingsRange = get(e.Activesheet,'Range','C1');
+eHeadingsRange.Value = 'No. tracks';
+
+% output the file names for reporting
+for n = 1:size(fullDataFile,1)
+    fileName = [];
+    [~,fileName,~] = fileparts(fullDataFile{n,:});
+    eFileNameSheetRange = get(e.Activesheet,'Range',sprintf(fileNameFormat,n+2,n+2));
+    eFileNameSheetRange.Value = fileName;
+    e.Range(sprintf(cellFormat,n+2)).Select; % select columns for formatting
+    e.Selection.Columns.AutoFit; % autofit the text width
+end
+
+% output the report data
+
+spotForm = 'B%d';
+trackForm = 'C%d';
+for n = 1:size(spotCount,1)
+    eSpotFormRange = get(e.Activesheet,'Range',sprintf(spotForm,n+2));
+    eSpotFormRange.Value = spotCount(n,:);
+    eTrackFormRange = get(e.Activesheet,'Range',sprintf(trackForm,n+2));
+    eTrackFormRange.Value = trackNo(n,:);
 end
 
 fileSaveFormat = 'Analysed %s';

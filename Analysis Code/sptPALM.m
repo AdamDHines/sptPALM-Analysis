@@ -49,6 +49,8 @@ function sptPALM(analysisParameters)
 % days folder. E.g. lutThresh = [150,120,140,160,120] for an experimental
 % day with 5 recordings, each value corresponding to its respective
 % recording.
+%
+% Adam Hines - a.david.hines@gmail.com (2019)
 
 %% Initialisation script
 
@@ -117,6 +119,10 @@ formatSpec2 = 'Experimental days analysed... %g out of %g';
 if eNum == 1
 expNumProg = waitbar(0,sprintf(formatSpec,0,size(fullDataFile,1)),'Name','Experiment day progress...');
 analysisProg = waitbar(0,'Looking for files...','Name','Analysis progress...');
+posExpNumProg = get(expNumProg,'position');
+posAnalysisProg = [posExpNumProg(1) posExpNumProg(2)+posExpNumProg(4)+24 ...
+                    posExpNumProg(3) posExpNumProg(4)];
+set(analysisProg,'position',posAnalysisProg,'doublebuffer','on');
 end
 
 %% Data processing
@@ -130,7 +136,7 @@ if eNum == 1
     % analysis data
     dirSpec = 'Single analysis %s';
     dirName = sprintf(dirSpec,datetime);
-    dirName = strrep(dirName,':','-');
+    dirName = strrep(dirName,':','-'); % necessary for windows naming
     outPutFold = fullfile(aFold(1).folder,dirName);
     mkdir(aFold(1).folder,dirName);
     
@@ -144,14 +150,14 @@ if eNum == 1
         % coordinates
         waitbar(0.2,analysisProg,'Initialising and running Fiji...');
         strName = [];
-            tracks{n,:} = runTrackMate(fileAnalyse,lutFile,n,analysisProg,outPutFold,...
+        [tracks{n},spotCountTotal(n,:)] = runTrackMate(fileAnalyse,lutFile,n,analysisProg,outPutFold,...
                 analysisParameters);
         
         % format the raw X/Y coordinates to be utilised in the sptAnalysis
         % script
         waitbar(0.8,analysisProg,'Preparing data for analysis...')
             newTracks = []; foldOut = [];
-            [newTracks,foldOut] = prepTracks(tracks{n,:},n,outPutFold,fullDataFile);
+            [newTracks,foldOut] = prepTracks(tracks{n},n,outPutFold,fullDataFile);
         
         % analyse and output the average MSD and diffusion coefficient
         % values, filtering out datasets with less than 1,000 tracks
@@ -163,11 +169,11 @@ if eNum == 1
                 continue
             else
             waitbar(0.9,analysisProg,'Analysing MSD and D.Coeff...')
-                [Av_MSD(:,n), N2(:,n)] = sptAnalysis(foldOut,analysisParameters,fullDataFile,n);
+                [Av_MSD(:,n), N2(:,n),trackNo(n,:)] = sptAnalysis(foldOut,analysisParameters,fullDataFile,n);
             end
         else
                waitbar(0.9,analysisProg,'Analysing MSD and D.Coeff...')
-                [Av_MSD(:,n), N2(:,n)] = sptAnalysis(foldOut,analysisParameters,fullDataFile,n); 
+                [Av_MSD(:,n), N2(:,n),trackNo(n,:)] = sptAnalysis(foldOut,analysisParameters,fullDataFile,n); 
         end
         
         
@@ -223,7 +229,7 @@ else
             
             % initialise and run trackmate analysis
             waitbar(0.2,analysisProg,'Initialising and running Fiji...');
-            tracks{m,o} = runTrackMate(fileAnalyse,lutFile,n,analysisProg,outPutFold,...
+            [tracks{m,o},spotCountTotal(m,o)] = runTrackMate(fileAnalyse,lutFile,o,analysisProg,outPutFold,...
                 analysisParameters);
             
             % get the output folder for the batch processed file and
@@ -236,19 +242,25 @@ else
             % if the number of tracks detected is less than 1,000, skip the
             % MSD and D.Coeff analysis and do not output any data, else run
             % the MSD and D.Coeff analysis
+        if splitFile == 0
             if size(unique(newTracks(:,1)),1) < 1000
-                waitbar(o/size(fullDataFile,1),expNumProg,sprintf(formatSpec,o,size(fullDataFile,1)));
+                waitbar(n/size(fullDataFile,1),expNumProg,sprintf(formatSpec,m,size(fullDataFile,1)));
+                Av_MSD(:,n) = zeros([10,1]);
+                N2(:,n) = zeros([60,1]);
                 continue
             else
-                waitbar(0.9,analysisProg,'Analysing MSD and D.Coeff...')
-                [Av_MSD(:,o), N2(:,o)] = sptAnalysis(foldOut,analysisParameters);
-                waitbar(1,analysisProg,'Done!')
-                waitbar(o/size(fullDataFile,1),expNumProg,sprintf(formatSpec,o,size(fullDataFile,1)));                
+            waitbar(0.9,analysisProg,'Analysing MSD and D.Coeff...')
+                [Av_MSD(:,o), N2(:,o),trackNo(o,m)] = sptAnalysis(foldOut,analysisParameters,fullDataFile,o);
             end
+        else
+               waitbar(0.9,analysisProg,'Analysing MSD and D.Coeff...')
+                [Av_MSD(:,o), N2(:,o),trackNo(o,m)] = sptAnalysis(foldOut,analysisParameters,fullDataFile,o); 
+        end
             
             % output the analysed data
         end
-        dataOut(Av_MSD,N2,outPutFold,analysisParameters,fullDataFile);
+        dataOut(Av_MSD,N2,outPutFold,analysisParameters,fullDataFile,spotCountTotal(m,:),...
+                                                                  trackNo(:,m));
     end
     
     % update experiment number for single day analysis
@@ -267,7 +279,8 @@ if eNum == 1
             'Analysis Output','OK','OK');
         return
     else
-        dataOut(Av_MSD,N2,outPutFold,analysisParameters,fullDataFile);
+        dataOut(Av_MSD,N2,outPutFold,analysisParameters,fullDataFile,spotCountTotal,...
+                                                                  trackNo);
         close(analysisProg)
         close(expNumProg)
     end

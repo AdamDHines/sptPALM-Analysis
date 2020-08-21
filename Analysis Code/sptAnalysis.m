@@ -1,9 +1,19 @@
-function [Av_MSD, N2] = sptAnalysis(foldOut,analysisParameters,fullDataFile,i)
+function [Av_MSD, N2,trackNo] = sptAnalysis(foldOut,analysisParameters,fullDataFile,i)
+
+% Function sptAnalysis feeds through x,y coordinates of spots in a track
+% and performs the mean squared displacement and diffusion coefficient
+% value analysis. This analysis uses come slightly modified code from 
+% Joensuu, M. et al. (2017) Nature Protocols. 
+% ----------------
+% FUNCTION INPUTS
+%
+% foldOut - 
 
 [CorrData, AvgMSD, D, MSD, Ds] = AverageMSDCalculator(foldOut,...
     analysisParameters.TrackMinimum-1,analysisParameters.MSDFitting,...
     analysisParameters.TimeDelta);
 
+% 
 for n = 1:size(MSD,2)
     tempMSD= [] ; 
     tempMSD = MSD{:,n};
@@ -18,6 +28,7 @@ for n = 1:size(MSD,2)
     MSDFirstTen(:,n) = tempMSD([1:10],:);
 end
 Av_MSD = nanmean(MSDFirstTen,2);
+trackNo = size(MSDFirstTen,2);
 
 log10_Ds=log10(Ds);
 edges = -5:0.1:1;
