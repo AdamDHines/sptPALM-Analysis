@@ -1,4 +1,34 @@
-function [tracks,strName] = runTrackMate(fullDataFile,lutFile,i,g,outPutFold,analysisParameters)
+function [tracks,spotCountTotal] = runTrackMate(fullDataFile,lutFile,i,g,...
+                                          outPutFold,analysisParameters)
+
+% Function runTrackMate takes analysis parameters and image file and feeds
+% it through a Miji version of TrackMate. Analysis parameters are mapped
+% using Java code. By default, subpixel localisation and median filtering
+% is on permanately.
+% ----------------
+% FUNCTION INPUTS
+%
+% fullDataFile - Contains image file name and location for loading.
+%
+% lutFile - Location of the threshold value .m file.
+%
+% i - Identifier for the threshold value to be used in analysed,
+% corresponding to the loop iteration of analysis.
+%
+% g - Waitbar handle to update analysis progress.
+%
+% outPutFold - Output location for tracks and spots file.
+%
+% analysisParameters - Predefined analysis settings for TrackMate.
+% ----------------
+% FUNCTION OUTPUTS
+%
+% tracks - Exported tracks from completed analysis, imported from .xml
+% file.
+%
+% strName - Name of the file that was analysed.
+%
+% Adam Hines - a.david.hines@gmail.com (2019)
 
 % load LUTs
 load(lutFile);
@@ -40,7 +70,8 @@ settings = fiji.plugin.trackmate.Settings();
 settings.setFrom(imp)
        
 % Configure detector - We use a java map
-settings.detectorFactory = fiji.plugin.trackmate.detection.LogDetectorFactory();
+settings.detectorFactory = ...
+                      fiji.plugin.trackmate.detection.LogDetectorFactory();
 map = java.util.HashMap();
 map.put('DO_SUBPIXEL_LOCALIZATION', true);
 map.put('RADIUS', spotRadius);
@@ -49,9 +80,11 @@ map.put('THRESHOLD', lutThresh(:,i));
 map.put('DO_MEDIAN_FILTERING', true);
 settings.detectorSettings = map;
          
-% Configure tracker - We want to allow splits and fusions
-settings.trackerFactory  = fiji.plugin.trackmate.tracking.sparselap.SparseLAPTrackerFactory();
-settings.trackerSettings = fiji.plugin.trackmate.tracking.LAPUtils.getDefaultLAPSettingsMap(); % almost good enough
+% Configure tracker
+settings.trackerFactory  = ...
+        fiji.plugin.trackmate.tracking.sparselap.SparseLAPTrackerFactory();
+settings.trackerSettings = ...
+        fiji.plugin.trackmate.tracking.LAPUtils.getDefaultLAPSettingsMap();
 settings.trackerSettings.put('LINKING_MAX_DISTANCE', maxLink);
 settings.trackerSettings.put('GAP_CLOSING_MAX_DISTANCE', gapCloseMax);
 settings.trackerSettings.put('SPLITTING_MAX_DISTANCE', 0);
@@ -66,15 +99,20 @@ settings.trackerSettings.put('ALLOW_TRACK_MERGING', false);
 % not features are calculated. 
     
 % The displacement feature is provided by the TrackDurationAnalyzer.
-settings.addTrackAnalyzer(fiji.plugin.trackmate.features.track.TrackDurationAnalyzer())
-settings.addTrackAnalyzer(fiji.plugin.trackmate.features.track.TrackLocationAnalyzer())
-settings.addTrackAnalyzer(fiji.plugin.trackmate.features.track.TrackIndexAnalyzer())  
-settings.addTrackAnalyzer(fiji.plugin.trackmate.features.track.TrackBranchingAnalyzer())
+settings.addTrackAnalyzer...
+             (fiji.plugin.trackmate.features.track.TrackDurationAnalyzer())
+settings.addTrackAnalyzer...
+             (fiji.plugin.trackmate.features.track.TrackLocationAnalyzer())
+settings.addTrackAnalyzer...
+                (fiji.plugin.trackmate.features.track.TrackIndexAnalyzer())  
+settings.addTrackAnalyzer...
+            (fiji.plugin.trackmate.features.track.TrackBranchingAnalyzer())
 
-% Configure track filters - We want to get rid of the two immobile spots at 
-% the bottom right of the image. Track displacement must be above 10 pixels.
-filter1 = fiji.plugin.trackmate.features.FeatureFilter('NUMBER_SPOTS',trackMinimum+0.1, true);
-filter2 = fiji.plugin.trackmate.features.FeatureFilter('NUMBER_SPOTS', trackMaximum, false);
+% Configure track filters
+filter1 = fiji.plugin.trackmate.features.FeatureFilter...
+                                   ('NUMBER_SPOTS',trackMinimum+0.1, true);
+filter2 = fiji.plugin.trackmate.features.FeatureFilter...
+                                     ('NUMBER_SPOTS', trackMaximum, false);
 settings.addTrackFilter(filter1);
 settings.addTrackFilter(filter2);
     
@@ -104,7 +142,18 @@ waitbar(0.6,g,'Exporting tracks as XML file...')
 strName = fullfile(outPutFold,name);
 fileOut = strcat(strName,'.xml');
 file = java.io.File(fileOut);
-fiji.plugin.trackmate.action.ExportTracksToXML.export(model, settings, file);
+fiji.plugin.trackmate.action.ExportTracksToXML.export...
+                                            (model, settings, file);
 waitbar(0.7,g,'Importing track coordinates...') 
 tracks = importTrackMateTracks(file);
+
+% get the spot count for the recordings
+spotCol = model.getSpots();
+stackSize = imp.getImageStackSize() - 1;
+for n = 0:stackSize;
+    spotCount(n+1,:) = spotCol.getNSpots(n,1);
+end
+
+spotCountTotal = sum(spotCount);
+        
 MIJ.exit;
