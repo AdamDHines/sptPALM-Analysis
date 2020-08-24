@@ -238,8 +238,9 @@ else
             
             % initialise and run trackmate analysis
             waitbar(0.2,analysisProg,'Initialising and running Fiji...');
-            [tracks{m,o},spotCountTotal(o,:)] = runTrackMate(fileAnalyse,lutFile,o,analysisProg,outPutFold,...
+            [tracks{m,o},spotCountTotal(m,o)] = runTrackMate(fileAnalyse,lutFile,o,analysisProg,outPutFold,...
                 analysisParameters);
+            spotCountTotal = spotCountTotal';
             % get the output folder for the batch processed file and
             % prepare the tracks for MSD and D.Coeff analysis
             waitbar(0.8,analysisProg,'Preparing data for analysis...');
@@ -258,7 +259,7 @@ else
                 continue
             else
             waitbar(0.9,analysisProg,'Analysing MSD and D.Coeff...')
-                [Av_MSD(:,o), N2(:,o),trackNo(o,:)] = sptAnalysis(foldOut,analysisParameters,fullDataFile,o);
+                [Av_MSD(:,o), N2(:,o),trackNo(o,m)] = sptAnalysis(foldOut,analysisParameters,fullDataFile,o);
             end
         else
                waitbar(0.9,analysisProg,'Analysing MSD and D.Coeff...')
@@ -299,6 +300,4 @@ end
 % close waitbars
 if eNum == 2
 close(h)
-close(analysisProg)
-close(expNumProg)
 end
