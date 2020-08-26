@@ -145,14 +145,12 @@ if eNum == 1
         
         % output file location
         fileAnalyse = []; fileAnalyse = fullDataFile{n,:};
-        
         % initialise and run TrackMate analysis, output track X/Y
         % coordinates
         waitbar(0.2,analysisProg,'Initialising and running Fiji...');
         strName = [];
         [tracks{n},spotCountTotal(n,:)] = runTrackMate(fileAnalyse,lutFile,n,analysisProg,outPutFold,...
                 analysisParameters);
-        
         % format the raw X/Y coordinates to be utilised in the sptAnalysis
         % script
         waitbar(0.8,analysisProg,'Preparing data for analysis...')

@@ -62,7 +62,17 @@ load('defaultParameters');
 
 % check if user has set personal defaults from software defaults and load
 % the correct set
-if isequal(programDefaults,defaultParameters) == 0
+if isequal(programDefaults,defaultParameters) == 1
+    % set the GUI with software default values
+    set(handles.spotRad,'String',defaultParameters.DefaultSpotRadius);
+    set(handles.trackMin,'String',defaultParameters.DefaultTrackMinimum);
+    set(handles.trackMax,'String',defaultParameters.DefaultTrackMaximum);
+    set(handles.maxLink,'String',defaultParameters.DefaultMaxLinking);
+    set(handles.msdFitBox,'String',defaultParameters.DefaultMSDFitting);
+    set(handles.deltaTimeBox,'String',defaultParameters.DefaultTimeDelta);
+    set(handles.miCutoffBox,'String',defaultParameters.DefaultMobImmobCutoff);
+    set(handles.gapCloseMax,'String',defaultParameters.DefaultGapClosing);
+else
     % set the GUI with user default values
     set(handles.spotRad,'String',defaultParameters.DefaultSpotRadius);
     set(handles.trackMin,'String',defaultParameters.DefaultTrackMinimum);
@@ -72,19 +82,6 @@ if isequal(programDefaults,defaultParameters) == 0
     set(handles.deltaTimeBox,'String',defaultParameters.DefaultTimeDelta);
     set(handles.miCutoffBox,'String',defaultParameters.DefaultMobImmobCutoff);
     set(handles.gapCloseMax,'String',defaultParameters.DefaultGapClosing);
-    set(handles.gapCloseChk,'Value',defaultParameters.DefaultGapCloseCheck);
-else
-    % set the GUI with software default values
-    set(handles.spotRad,'String',programDefaults.DefaultSpotRadius);
-    set(handles.trackMin,'String',programDefaults.DefaultTrackMinimum);
-    set(handles.trackMax,'String',programDefaults.DefaultTrackMaximum);
-    set(handles.maxLink,'String',programDefaults.DefaultMaxLinking);
-    set(handles.msdFitBox,'String',programDefaults.DefaultMSDFitting);
-    set(handles.deltaTimeBox,'String',programDefaults.DefaultTimeDelta);
-    set(handles.miCutoffBox,'String',programDefaults.DefaultMobImmobCutoff);
-    set(handles.gapCloseMax,'String',programDefaults.DefaultGapClosing);
-    set(handles.gapCloseChk,'Value',programDefaults.DefaultGapCloseCheck);
-end
 
 % set final parameter values to 0
 handles.spotRadius = 0;
@@ -630,12 +627,8 @@ function setAnalysisDef_Callback(hObject, eventdata, handles)
 % hObject    handle to setAnalysisDef (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-addpath('Analysis Parameters\Defaults');
-load('defaultParameters.mat');
-load('programDefaults.mat');
-defaultParameters = programDefaults;
-    save('Analysis Parameters\Defaults\defaultParameters.mat','defaultParameters');
-
+addpath('Analysis Parameters');
+setDefaults;
 
 % --------------------------------------------------------------------
 function help_Callback(hObject, eventdata, handles)
@@ -713,26 +706,3 @@ function pushbutton8_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton8 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
-% get value for MSD fitting
-DefaultMSDFitting = get(handles.msdFitBox,'string');
-    DefaultMSDFitting = str2double(DefaultMSDFitting);
-    
-% get value for time delta
-DefaultTimeDelta = get(handles.deltaTimeBox,'string');
-    DefaultTimeDelta = str2double(DefaultTimeDelta);
-    
-% get value for mob immob cutoff
-DefaultMobImmobCutoff = get(handles.miCutoffBox,'string');
-    DefaultMobImmobCutoff = str2double(DefaultMobImmobCutoff);
-    
-    % restate the default parameters structure
-defaultParameters = handles.defaultParameters;
-
-% update default parameter values
-defaultParameters.DefaultMSDFitting = DefaultMSDFitting;
-defaultParameters.DefaultTimeDelta = DefaultTimeDelta;
-defaultParameters.MobImmobCutoff = DefaultMobImmobCutoff;
-
-addpath('Analysis Parameters\Defaults');
-save('Analysis Parameters\Defaults\defaultParameters.mat','defaultParameters');
