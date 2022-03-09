@@ -39,7 +39,7 @@ for n = 1:size(tracks,1)
     driftInd = []; driftInd = drift(driftIndCorrect,:);
     % correct x & y coordinates
     tempTracks(:,2) = tempTracks(:,2)-driftInd(:,1);
-    tempTracks(:,3) = tempTracks(:,3)-driftInd(:,2);
+    tempTracks(:,3) = tempTracks(:,3)-(driftInd(:,2)*-1);
     timePlace = []; timePlace = 0.03*tempTracks(:,1);
     tempTracks([1:size(tempTracks,1)],1) = n;
     timeSeries = []; timeSeries = (0:0.030:0.030*(size(tempTracks,1)-1))';
