@@ -157,7 +157,23 @@ if eNum == 1
         % script
         waitbar(0.8,analysisProg,'Preparing data for analysis...')
             newTracks = []; foldOut = [];
-            [newTracks,foldOut] = prepTracks(tracks{n},n,outPutFold,fullDataFile);
+            % run analysis with or without drift correction
+            if analysisParameters.driftFlag == 1
+                dirDrift = dir(fullfile(aFold(n).folder,'DriftTables'));
+                dirDrift([1:2],:) = []; driftAll = [];
+                % import drift table data
+                [driftAll,str,raw] = xlsread(fullfile(dirDrift(n).folder,dirDrift(n).name));
+                % determine if values are in micron or nm and convert
+                TF = contains(char(str(2,2)),'nm');
+                if TF == 1
+                    drift = driftAll(:,[2,4])/1000;
+                else
+                    drift = driftAll(:,[2,4]);
+                end
+                [newTracks,foldOut] = prepTracksDrift(tracks{n},n,outPutFold,fullDataFile,drift);
+            else
+                [newTracks,foldOut] = prepTracks(tracks{n},n,outPutFold,fullDataFile);
+            end
         
         % analyse and output the average MSD and diffusion coefficient
         % values, filtering out datasets with less than 1,000 tracks
