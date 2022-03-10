@@ -261,7 +261,22 @@ else
             waitbar(0.8,analysisProg,'Preparing data for analysis...');
             aFold = getFoldersBatch(bFold{m,:});
             newTracks = []; foldOut = [];
-            [newTracks,foldOut] = prepTracks(tracks{m,o},o,outPutFold,fullDataFile);
+            if analysisParameters.driftFlag == 1
+                dirDrift = dir(fullfile(aFold(n).folder,'DriftTables'));
+                dirDrift([1:2],:) = []; driftAll = [];
+                % import drift table data
+                [driftAll,str,raw] = xlsread(fullfile(dirDrift(n).folder,dirDrift(n).name));
+                % determine if values are in micron or nm and convert
+                TF = contains(char(str(2,2)),'nm');
+                if TF == 1
+                    drift = driftAll(:,[2,4])/1000;
+                else
+                    drift = driftAll(:,[2,4]);
+                end
+                [newTracks,foldOut] = prepTracksDrift(tracks{m,o},o,outPutFold,fullDataFile,drift);
+            else
+                [newTracks,foldOut] = prepTracks(tracks{m,o},o,outPutFold,fullDataFile);
+            end
             
             % if the number of tracks detected is less than 1,000, skip the
             % MSD and D.Coeff analysis and do not output any data, else run
