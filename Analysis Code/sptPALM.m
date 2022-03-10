@@ -265,7 +265,7 @@ else
                 dirDrift = dir(fullfile(aFold(n).folder,'DriftTables'));
                 dirDrift([1:2],:) = []; driftAll = [];
                 % import drift table data
-                [driftAll,str,raw] = xlsread(fullfile(dirDrift(n).folder,dirDrift(n).name));
+                [driftAll,str,raw] = xlsread(fullfile(dirDrift(o).folder,dirDrift(o).name));
                 % determine if values are in micron or nm and convert
                 TF = contains(char(str(2,2)),'nm');
                 if TF == 1
