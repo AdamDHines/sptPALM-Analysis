@@ -22,7 +22,7 @@ function varargout = sptPALMParam(varargin)
 
 % Edit the above text to modify the response to help sptPALMParam
 
-% Last Modified by GUIDE v2.5 24-May-2019 13:46:02
+% Last Modified by GUIDE v2.5 09-Mar-2022 14:27:59
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -469,9 +469,6 @@ function OutputRaw_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of OutputRaw
-outputRaw = get(hObject,'Value');
-handles.outputRaw = outputRaw;
-    guidata(hObject, handles);
 
 % SETTING THE THRESHOLD VALUES
 
@@ -586,6 +583,9 @@ end
 splitFileCheck = get(handles.radiobutton4,'value');
 % Raw data check
 rawdataCheck = get(handles.OutputRaw,'value');
+% drift correct file
+driftFlagCheck = get(handles.driftFlag,'value');
+
 
 % update analysis parameter to .mat file
 analysisParameters = struct('FileDirectory',fileDir,'SpotRadius',spotRadius,...
@@ -593,7 +593,7 @@ analysisParameters = struct('FileDirectory',fileDir,'SpotRadius',spotRadius,...
     'MaximumLink',maxLinking,'eNum',eNum,'MSDFitting',msdFit,...
     'TimeDelta',deltaTime,'MobImmobCutoff',miCutoff,'GapCloseMax',gapClose,...
     'GapCloseChk',gapCloseChk, 'SplitFile',splitFileCheck,'OutputRaw',...
-    rawdataCheck);
+    rawdataCheck,'driftFlag',driftFlagCheck);
 
 % run the analysis script
 sptPALM(analysisParameters);
@@ -643,3 +643,12 @@ function File_Preparation_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 dataPrep;
+
+
+% --- Executes on button press in driftFlag.
+function driftFlag_Callback(hObject, eventdata, handles)
+% hObject    handle to driftFlag (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of driftFlag
