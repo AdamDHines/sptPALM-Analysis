@@ -27,7 +27,7 @@ To install, simply clone this repository `>git clone git@github.com:AdamDHines/s
 Open MATLAB and set the folder to the sptPALM-Analysis folder you just cloned. Simply type `start` into the command window and press `Enter` to begin the program.
 
 ### Run performance
-This code uses [TrackMate](https://imagej.net/plugins/trackmate/) to perform sptPALM, which parallelizes spot detection based on the number of CPU cores. This can be computationally heavy if using large image sequenes (>10,000 frames).
+This code uses [TrackMate](https://imagej.net/plugins/trackmate/) to perform sptPALM, which parallelizes spot detection based on the number of CPU cores. This can be computationally quite slow if using large image sequenes (>10,000 frames).
 
 ## How to use
 A (sort of) detailed description is provided in the pdf document _sptPALM Analysis Guide_ (currently incomplete) of how to use the code is available [here](https://github.com/AdamDHines/sptPALM-Analysis/blob/master/Documentation/sptPALM%20Analysis%20Guide.pdf) or in the `/Documentation` folder of the cloned repository.
@@ -53,4 +53,10 @@ Select this if you want sptPALM-Analysis to allow MSD and diffusion coefficient 
 ### Setting sptPALM Parameters and Processing Parameters
 This is the part where an individual usecase will need to determine what parameters are used. The default settings were optimised for tracking Syntaxin1a-mEos2 molecules on a 2012 Zeiss ELYRA PS.1 with an EMCCD camera. We recommend keeping `Track Minimum`, `Track Maximum`, and `MSD Fitting` values the same.
 
-Use the spot radius value (half the spot diameter value used in the main TrackMate GUI) that you used to determine the threshold values. 
+Use the `Spot radius` value (half the spot diameter value used in the main TrackMate GUI) that you used to determine the threshold values. 
+
+The `Maximum Linking Distance` is the max distance two detected spots can be linked together from one frame to the next. This depends on the biology of your desired molecule. Generally, for membrane anchored proteins 0.3um and cytosolic protein 0.8um are good starting points.
+
+`Time Delta` is the exposure rate of the camera during acquisition, adjust accordingly.
+
+`Mobile:Immobile` cutoff is a little trickier to calculate and is based on the pixel dimensions of the camera used for acquisition. Please see the following [paper](https://www.sciencedirect.com/science/article/pii/S0896627315000380?via%3Dihub) to determine how to calculate this value.
