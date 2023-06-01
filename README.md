@@ -8,6 +8,8 @@ This repository contains code for the semi-automated analysis of single particle
 * [Tracking Single Molecule Dynamics in the Adult Drosophila Brain](https://www.eneuro.org/content/8/3/ENEURO.0057-21.2021)
 * [Synapse-specific trapping of Syntaxin1a into nanoclusters by the general anesthetic isoflurane](https://www.biorxiv.org/content/10.1101/2023.02.27.530184v1)
 
+![Single molecules being tracked](https://github.com/AdamDHines/sptPALM-Analysis/assets/50095916/e0504a51-f45b-49b0-9137-6a717c300d1d)
+
 **_If you found this code useful or helpful for your research, please consider giving the repository a star :star:._**
 
 ## License and Citation
