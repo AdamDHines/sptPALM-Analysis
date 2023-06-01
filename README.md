@@ -20,7 +20,8 @@ If you use this code (verbatim or modified) in your publication, please cite the
 ## Setup and installation
 sptPALM-Analysis was written and developed in MATLAB 2018b, so it will be best to use this specific version but it has been tested on up to MATLAB 2020 versions with no issues.
 
-_Since the code is no longer being actively worked on or developed, we make no guarantee it will be functional in newer versions of MATLAB._ 
+> **Note**
+>Since the code is no longer being actively worked on or developed, we make no guarantee it will be functional in newer versions of MATLAB.
 
 To install, simply clone this repository `>git clone git@github.com:AdamDHines/sptPALM-Analysis.git` or by downloading the ZIP file. The repository comes with [FIJI](https://imagej.net/software/fiji/downloads), so no need to install this separately. A pre-existing FIJI install will not affect anything.
 
@@ -43,7 +44,10 @@ Once you've determined the  threshold value for the spot detection (page 16 of [
 ### _Apply drift correction?_
 Drift correction capability was added, details of which are available in [Hines, AD. et al. 2023 bioRxiv](https://www.biorxiv.org/content/10.1101/2023.02.27.530184v1). If you wish to use this feature, currently it only takes the x,y drift values generated from the model based drift correction by the Zeiss ZEN PALM plugin. 
 
-To use, copy and paste the x,y drift values from ZEN into an excel spreadsheet and save with the same name as your data file making sure it is a .csv file. Add the .csv files into a new folder called `DriftTables` in the same directory as your data files (_note: the name DriftTables is critical, it won't work otherwise_).
+To use, copy and paste the x,y drift values from ZEN into an excel spreadsheet and save with the same name as your data file making sure it is a .csv file. Add the .csv files into a new folder called `DriftTables` in the same directory as your data files 
+
+> **Note**
+>the name DriftTables is critical, it won't work otherwise.
 
 When running the program, select the `Apply drift correction?` button in the proccessing paramters pane.
 
@@ -62,4 +66,6 @@ The `Maximum Linking Distance` is the max distance two detected spots can be lin
 `Mobile:Immobile` cutoff is a little trickier to calculate and is based on the pixel dimensions of the camera used for acquisition. Please see the following [paper](https://www.sciencedirect.com/science/article/pii/S0896627315000380?via%3Dihub) to determine how to calculate this value.
 
 ## Issues and troubleshooting
-If you run into a bug or issue, please [report it](https://github.com/AdamDHines/sptPALM-Analysis/issues). _I cannot guarantee a solution to any coding problems, but will be able to easily resolve any usecase issues._ 
+If you run into a bug or issue, please [report it](https://github.com/AdamDHines/sptPALM-Analysis/issues). 
+> **Note**
+>I cannot guarantee a solution to any coding problems, but will be able to easily resolve any usecase issues.
