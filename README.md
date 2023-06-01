@@ -1,7 +1,7 @@
 # sptPALM-Analysis
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![stars](https://img.shields.io/github/stars/AdamDHines/sptPALM-Analysis.svg?style=flat-square)](https://github.com/AdamDHines/sptPALM-Analysis/stargazers)
-[![Github All Releases](https://api.github.com/repos/AdamDHines/sptPALM-Analysis/traffic/clones)]
+[![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count&url=https://gist.githubusercontent.com/AdamDHines/bddab1ad93ef30141a8cde52bab35b25/raw/clone.json&logo=github)](https://github.com/MShawon/github-clone-count-badge)
 
 This repository contains code for the semi-automated analysis of single particle tracking & photoactivatable localization microscopy (sptPALM), developed from the following papers:
 * [Tracking Single Molecule Dynamics in the Adult Drosophila Brain](https://www.eneuro.org/content/8/3/ENEURO.0057-21.2021)
