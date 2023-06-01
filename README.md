@@ -1,4 +1,4 @@
-# sptPALM-Analysis
+# sptPALM-Analysis (SPA) :microscope:
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![stars](https://img.shields.io/github/stars/AdamDHines/sptPALM-Analysis.svg?style=flat-square)](https://github.com/AdamDHines/sptPALM-Analysis/stargazers)
 [![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count&url=https://gist.githubusercontent.com/AdamDHines/bddab1ad93ef30141a8cde52bab35b25/raw/clone.json&logo=github)](https://github.com/MShawon/github-clone-count-badge)
@@ -7,7 +7,7 @@ This repository contains code for the semi-automated analysis of single particle
 * [Tracking Single Molecule Dynamics in the Adult Drosophila Brain](https://www.eneuro.org/content/8/3/ENEURO.0057-21.2021)
 * [Synapse-specific trapping of Syntaxin1a into nanoclusters by the general anesthetic isoflurane](https://www.biorxiv.org/content/10.1101/2023.02.27.530184v1)
 
-**_If you found this code useful or helpful for your research, please consider giving the repository a star._**
+**_If you found this code useful or helpful for your research, please consider giving the repository a star :star:._**
 
 ## License and Citation
 
@@ -60,3 +60,6 @@ The `Maximum Linking Distance` is the max distance two detected spots can be lin
 `Time Delta` is the exposure rate of the camera during acquisition, adjust accordingly.
 
 `Mobile:Immobile` cutoff is a little trickier to calculate and is based on the pixel dimensions of the camera used for acquisition. Please see the following [paper](https://www.sciencedirect.com/science/article/pii/S0896627315000380?via%3Dihub) to determine how to calculate this value.
+
+## Issues and troubleshooting
+If you run into a bug or issue, please [report it](https://github.com/AdamDHines/sptPALM-Analysis/issues). _I cannot guarantee a solution to any coding problems, but will be able to easily resolve any usecase issues._ 
