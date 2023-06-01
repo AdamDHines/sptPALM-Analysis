@@ -54,7 +54,8 @@ To use, copy and paste the x,y drift values from ZEN into an excel spreadsheet a
 When running the program, select the `Apply drift correction?` button in the proccessing paramters pane.
 
 ### _Allow <1000 trajectories?_
-Select this if you want sptPALM-Analysis to allow MSD and diffusion coefficient calculations on files that had less than 1000 trajectories detected. (_Recommended_)
+Select this if you want sptPALM-Analysis to allow MSD and diffusion coefficient calculations on files that had less than 1000 trajectories detected. 
+>**Recommended**
 
 ### Setting sptPALM Parameters and Processing Parameters
 This is the part where an individual usecase will need to determine what parameters are used. The default settings were optimised for tracking Syntaxin1a-mEos2 molecules on a 2012 Zeiss ELYRA PS.1 with an EMCCD camera. We recommend keeping `Track Minimum`, `Track Maximum`, and `MSD Fitting` values the same.
