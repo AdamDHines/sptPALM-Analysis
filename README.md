@@ -7,14 +7,50 @@ This repository contains code for the semi-automated analysis of single particle
 * [Tracking Single Molecule Dynamics in the Adult Drosophila Brain](https://www.eneuro.org/content/8/3/ENEURO.0057-21.2021)
 * [Synapse-specific trapping of Syntaxin1a into nanoclusters by the general anesthetic isoflurane](https://www.biorxiv.org/content/10.1101/2023.02.27.530184v1)
 
-If you found this code useful, please consider starring the repository.
+**_If you found this code useful or helpful for your research, please consider giving the repository a star._**
 
 ## License and Citation
 
 This code is licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
 
-If you use this code in your publication, please cite the following publications:
+If you use this code (verbatim or modified) in your publication, please cite the following publications:
 * [Hines, AD. & van Swinderen, B. 2021 eNeuro 8(3)](https://www.eneuro.org/content/8/3/ENEURO.0057-21.2021)
 * [Hines, AD. et al. 2023 bioRxiv](https://www.biorxiv.org/content/10.1101/2023.02.27.530184v1)
 
 ## Setup and installation
+sptPALM-Analysis was written and developed in MATLAB 2018b, so it will be best to use this specific version but it has been tested on up to MATLAB 2020 versions with no issues.
+
+_Since the code is no longer being actively worked on or developed, we make no guarantee it will be functional in newer versions of MATLAB._ 
+
+To install, simply clone this repository `>git clone git@github.com:AdamDHines/sptPALM-Analysis.git` or by downloading the ZIP file. The repository comes with [FIJI](https://imagej.net/software/fiji/downloads), so no need to install this separately. A pre-existing FIJI install will not affect anything.
+
+Open MATLAB and set the folder to the sptPALM-Analysis folder you just cloned. Simply type `start` into the command window and press `Enter` to begin the program.
+
+### Run performance
+This code uses [TrackMate](https://imagej.net/plugins/trackmate/) to perform sptPALM, which parallelizes spot detection based on the number of CPU cores. This can be computationally heavy if using large image sequenes (>10,000 frames).
+
+## How to use
+A (sort of) detailed description is provided in the pdf document _sptPALM Analysis Guide_ (currently incomplete) of how to use the code is available [here](https://github.com/AdamDHines/sptPALM-Analysis/blob/master/Documentation/sptPALM%20Analysis%20Guide.pdf) or in the `/Documentation` folder of the cloned repository.
+
+Not specified in the analysis guide pdf are a few extra settings, which will be detailed here:
+
+### _Requirements_
+Please check pages 15 - 17 of the [analysis guide](https://github.com/AdamDHines/sptPALM-Analysis/blob/master/Documentation/sptPALM%20Analysis%20Guide.pdf) which details some critical information on data structure and file type. Currently, you need to have the raw data file in the same folder as the converted .tif file otherwise errors will been thrown. 
+
+### _Set the threshold values_
+Once you've determined the  threshold value for the spot detection (page 16 of [analysis guide](https://github.com/AdamDHines/sptPALM-Analysis/blob/master/Documentation/sptPALM%20Analysis%20Guide.pdf)), press `Set` in the `Set Threshold Values` pane. Type in the threshold values calculated, seperating them with _only_ a space. Threshold values are entered and used in the order the files are organised in the analysis folder.
+
+### _Apply drift correction?_
+Drift correction capability was added, details of which are available in [Hines, AD. et al. 2023 bioRxiv](https://www.biorxiv.org/content/10.1101/2023.02.27.530184v1). If you wish to use this feature, currently it only takes the x,y drift values generated from the model based drift correction by the Zeiss ZEN PALM plugin. 
+
+To use, copy and paste the x,y drift values from ZEN into an excel spreadsheet and save with the same name as your data file making sure it is a .csv file. Add the .csv files into a new folder called `DriftTables` in the same directory as your data files (_note: the name DriftTables is critical, it won't work otherwise_).
+
+When running the program, select the `Apply drift correction?` button in the proccessing paramters pane.
+
+### _Allow <1000 trajectories?_
+Select this if you want sptPALM-Analysis to allow MSD and diffusion coefficient calculations on files that had less than 1000 trajectories detected. (_Recommended_)
+
+### Setting sptPALM Parameters and Processing Parameters
+This is the part where an individual usecase will need to determine what parameters are used. The default settings were optimised for tracking Syntaxin1a-mEos2 molecules on a 2012 Zeiss ELYRA PS.1 with an EMCCD camera. We recommend keeping `Track Minimum`, `Track Maximum`, and `MSD Fitting` values the same.
+
+Use the spot radius value (half the spot diameter value used in the main TrackMate GUI) that you used to determine the threshold values. 
