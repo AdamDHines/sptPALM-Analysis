@@ -16,7 +16,7 @@ This repository contains code for the semi-automated analysis of single particle
 
 This code is licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
 
-If you use this code (verbatim or modified) in your publication, please cite the following publication:
+If you use this code (verbatim or modified) in your work, please cite the following publication:
 * [Hines, AD. & van Swinderen, B. 2021 eNeuro 8(3)](https://www.eneuro.org/content/8/3/ENEURO.0057-21.2021)
 
 ## Setup and installation
@@ -38,10 +38,10 @@ A (sort of) detailed description is provided in the pdf document _sptPALM Analys
 Not specified in the analysis guide pdf are a few extra settings, which will be detailed here:
 
 ### _Requirements_
-Please check pages 15 - 17 of the [analysis guide](https://github.com/AdamDHines/sptPALM-Analysis/blob/master/Documentation/sptPALM%20Analysis%20Guide.pdf) which details some critical information on data structure and file type. Currently, you need to have the raw data file in the same folder as the converted .tif file otherwise errors will been thrown. 
+Please check pages 15 - 17 of the [analysis guide](https://github.com/AdamDHines/sptPALM-Analysis/blob/master/Documentation/sptPALM%20Analysis%20Guide.pdf) which details some critical information on data structure and file type. Currently, you need to have the raw data file in the same folder as the converted .tif file otherwise errors will occur. 
 
 ### _Set the threshold values_
-Once you've determined the  threshold value for the spot detection (page 16 of [analysis guide](https://github.com/AdamDHines/sptPALM-Analysis/blob/master/Documentation/sptPALM%20Analysis%20Guide.pdf)), press `Set` in the `Set Threshold Values` pane. Type in the threshold values calculated, seperating them with _only_ a space. Threshold values are entered and used in the order the files are organised in the analysis folder.
+Once you've determined the  threshold value for the spot detection (page 16 of [analysis guide](https://github.com/AdamDHines/sptPALM-Analysis/blob/master/Documentation/sptPALM%20Analysis%20Guide.pdf)), press `Set` in the `Set Threshold Values` pane. Type in the threshold values calculated earlier, seperating them with _only_ a space. Threshold values are entered and used in the order the files are organised in the analysis folder.
 
 ### _Apply drift correction?_
 Drift correction capability was added, details of which are available in [Hines, AD. et al. 2023 bioRxiv](https://www.biorxiv.org/content/10.1101/2023.02.27.530184v1). If you wish to use this feature, currently it only takes the x,y drift values generated from the model based drift correction by the Zeiss ZEN PALM plugin. 
