@@ -14,9 +14,8 @@ This repository contains code for the semi-automated analysis of single particle
 
 This code is licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
 
-If you use this code (verbatim or modified) in your publication, please cite the following publications:
+If you use this code (verbatim or modified) in your publication, please cite the following publication:
 * [Hines, AD. & van Swinderen, B. 2021 eNeuro 8(3)](https://www.eneuro.org/content/8/3/ENEURO.0057-21.2021)
-* [Hines, AD. et al. 2023 bioRxiv](https://www.biorxiv.org/content/10.1101/2023.02.27.530184v1)
 
 ## Setup and installation
 sptPALM-Analysis was written and developed in MATLAB 2018b, so it will be best to use this specific version but it has been tested on up to MATLAB 2020 versions with no issues.
