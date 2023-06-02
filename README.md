@@ -25,7 +25,11 @@ sptPALM-Analysis was written and developed in MATLAB 2018b, so it will be best t
 > **Note**
 >Since the code is no longer being actively worked on or developed, we make no guarantee it will be functional in newer versions of MATLAB.
 
-To install, simply clone this repository `>git clone git@github.com:AdamDHines/sptPALM-Analysis.git` or by downloading the ZIP file. The repository comes with [FIJI](https://imagej.net/software/fiji/downloads), so no need to install this separately. A pre-existing FIJI install will not affect anything.
+To install, simply clone this repository 
+```
+git clone git@github.com:AdamDHines/sptPALM-Analysis.git
+``` 
+or by downloading the ZIP file. The repository comes with [FIJI](https://imagej.net/software/fiji/downloads), so no need to install this separately. A pre-existing FIJI install will not affect anything.
 
 Open MATLAB and set the folder to the sptPALM-Analysis folder you just cloned. Simply type `start` into the command window and press `Enter` to begin the program.
 
